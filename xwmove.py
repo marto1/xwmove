@@ -8,11 +8,14 @@ import sys
 
 def runner():
     parser = argparse.ArgumentParser(description='Move windows around.')
-    parser.add_argument('direction', type=str,
-                    help='direction that you want to move',
-                    choices=('bottomright', 'bottomleft', 'topleft', 'topright',
-                    'center', 'top', 'right', 'bottom', 'left',), nargs=1)
-
+    if sys.argv[1:]:
+        parser.add_argument('direction', type=str,
+                        help='direction that you want to move',
+                        choices=('bottomright', 'bottomleft', 'topleft', 'topright',
+                        'center', 'top', 'right', 'bottom', 'left',), nargs=1,
+                        )
+    else:
+        parser.add_argument('--direction', default = ['center'])
     args = parser.parse_args()
 
     ewmh = EWMH()

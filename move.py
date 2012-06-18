@@ -57,6 +57,8 @@ class WindowMove:
         """
         Move the window to the given coordinates and flush.
         """
+        self.info.ewmh.setWmState(self.win,0,'_NET_WM_STATE_MAXIMIZED_HORZ')
+        self.info.ewmh.setWmState(self.win,0,'_NET_WM_STATE_MAXIMIZED_VERT')
         self.info.ewmh.setWmState(self.win,0,'_NET_WM_STATE_FULLSCREEN')
         self.info.ewmh.setWmState(self.win,1,'_NET_WM_STATE_DEMANDS_ATTENTION')
         self.info.ewmh.setMoveResizeWindow(self.win,

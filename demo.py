@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from posinfo import *
 from move import *
 import time
