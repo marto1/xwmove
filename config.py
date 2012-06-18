@@ -1,0 +1,5 @@
+DEBUG = True
+
+TOP_FIX = 24
+LEFT_FIX = 2
+BOTTOM_FIX = 10
