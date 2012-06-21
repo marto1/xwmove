@@ -8,6 +8,10 @@ import sys
 
 def runner():
     parser = argparse.ArgumentParser(description='Move windows around.')
+    parser.add_argument('-d','--double-command', action="store_true",
+                        dest='double',
+                        help='If this is set the double command mode will activate',
+                        )
     if sys.argv[1:]:
         parser.add_argument('direction', type=str,
                         help='direction that you want to move',
@@ -23,10 +27,9 @@ def runner():
     moveWin = WindowMove(main)
 
     if (DEBUG):
-        print 'ACTIVE WIN:',ewmh.getActiveWindow()
-        print 'DIRECTION:',args.direction[0]
-        print 'MAIN W:',main.mainW,'MAIN H:',main.mainH
-        print 'FULL W:',main.FULL_W,'FULL H',main.FULL_H
+        import pprint
+        print 'DOUBLE MODE:',args.double
+        pprint.pprint(vars(main))
     moveWin.move(ewmh.getActiveWindow(), args.direction[0], 'half')
 
     return 0

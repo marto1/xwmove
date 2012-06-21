@@ -65,3 +65,13 @@ class WindowMove:
                                   x=self.x, y=self.y,\
                                   w=self.w, h=self.h)
         self.info.ewmh.display.flush()
+    def _maximize(self):
+        """
+        Maximize the window.
+        """
+        self.info.ewmh.setWmState(self.win,1,'_NET_WM_STATE_MAXIMIZED_HORZ')
+        self.info.ewmh.setWmState(self.win,1,'_NET_WM_STATE_MAXIMIZED_VERT')
+        self.info.ewmh.setMoveResizeWindow(self.win,
+                                  x=self.info.topX, y=self.info.topY,\
+                                  w=self.info.FULL_W, h=self.info.FULL_H)
+        self.info.ewmh.display.flush()

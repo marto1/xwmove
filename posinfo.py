@@ -3,7 +3,7 @@ import config
 
 class MainInfo:
     """
-    Get information about the screen size,
+    Get information about the work area,
     absolute positions for the SPECIAL* places
     and widths and heights for the same
 
@@ -20,17 +20,18 @@ class MainInfo:
         self.mainW = workArea[2 + 4*self.currentDesktop]
         self.mainH  = workArea[3 + 4*self.currentDesktop]
 
-        self.HALF_H = self.mainH/2
-        self.HALF_W = self.mainW/2
-        self.QUARTER_H = self.mainH/4
-        self.QUARTER_W = self.mainW/4
+        self.FULL_W = self.mainW - config.LEFT_FIX
+        self.FULL_H = self.mainH - config.TOP_FIX
 
-        self.topRightHalfX = self.HALF_W
+        self.HALF_W = self.mainW/2
+        self.HALF_H = self.mainH/2
+
+        self.QUARTER_W = self.mainW/4
+        self.QUARTER_H = self.mainH/4
+
+        self.topRightHalfX = self.HALF_W + config.TOP_FIX
         self.topRightQuarterX = self.QUARTER_W * 3
 
         self.bottomLeftY = self.HALF_H + config.TOP_FIX + config.BOTTOM_FIX
-
-        self.FULL_H = self.mainH - config.TOP_FIX
-        self.FULL_W = self.mainW - config.LEFT_FIX
 
 
