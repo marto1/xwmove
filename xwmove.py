@@ -2,7 +2,7 @@
 import argparse
 from ewmh import EWMH
 from posinfo import MainInfo
-from move import WindowMove
+from move import WindowMove,DispatchMove
 from config import DEBUG
 import sys
 
@@ -24,13 +24,13 @@ def runner():
 
     ewmh = EWMH()
     main = MainInfo(ewmh)
-    moveWin = WindowMove(main)
+    moveWin = DispatchMove(main,args.double)
 
     if (DEBUG):
         import pprint
         print 'DOUBLE MODE:',args.double
         pprint.pprint(vars(main))
-    moveWin.move(ewmh.getActiveWindow(), args.direction[0], 'half')
+    moveWin.move(ewmh.getActiveWindow(), args.direction[0])
 
     return 0
 

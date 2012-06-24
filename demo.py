@@ -12,9 +12,9 @@ print main.HALF_W, main.HALF_H
 print ewmh.NET_WM_STATES
 print ewmh.NET_WM_ACTIONS
 
-moveWin = WindowMove(main)
+moveWin = DispatchMove(main, True)
 
 for pos in ['bottomright', 'bottomleft', 'topleft', 'topright', 'center',
-            'top', 'right', 'bottom', 'left', 'top']:
-    moveWin.move(ewmh.getActiveWindow(), pos, 'half')
+            'center','top', 'right', 'bottom', 'left', 'top',]:
+    moveWin.move(ewmh.getActiveWindow(), pos)
     time.sleep(0.5)
